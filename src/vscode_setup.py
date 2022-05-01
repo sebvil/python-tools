@@ -37,27 +37,6 @@ def run_command(command: str):
     subprocess.run(command.split(" "))
 
 
-def run_command_with_output(command: str) -> str:
-    """Run a command and return the its standard output.
-
-    Run a commmad, informing the user of the command about to be run,
-    and return its standard output.
-
-    Args:
-        command (str): The command to run.
-
-    Returns:
-        str: The standard output of the commnad.
-
-    """
-    print(f"Running '{command}'")
-    result = (
-        subprocess.run(command.split(" "), capture_output=True).stdout.decode().strip()
-    )
-    print(result)
-    return result
-
-
 parser = argparse.ArgumentParser(
     description=(
         "Set up Python environment for VS Code. This should be run in the root of your project."
@@ -74,12 +53,12 @@ parser.add_argument(
 args = parser.parse_args()
 python_version = args.python_version
 
-print("Set up pipenv")
+print("Setting up pipenv")
 run_command(f"pipenv install --python {python_version}")
 run_command("pipenv install --dev black pylama")
 
 
-print("Set up VS Code")
+print("Setting up VS Code")
 if not os.path.exists(VS_CODE_DIR):
     print(f"Creating directory {VS_CODE_DIR}")
     os.makedirs(VS_CODE_DIR)
