@@ -20,6 +20,8 @@ SETTINGS = """
     "editor.formatOnType": true,
     "files.autoSave": "onFocusChange",
     "editor.formatOnSave": true,
+    "autoDocstring.docstringFormat": "docblockr",
+    "python.languageServer": "Jedi",
 }
 """.strip()
 
