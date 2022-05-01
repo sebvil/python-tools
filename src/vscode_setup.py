@@ -64,4 +64,5 @@ if not os.path.exists(VS_CODE_DIR):
     os.makedirs(VS_CODE_DIR)
 
 with open(f"{VS_CODE_DIR}/{VS_CODE_CONFIG}", "w") as f:
+    print("Generating workspace settings")
     f.write(SETTINGS)
